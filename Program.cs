@@ -8,79 +8,108 @@ namespace LINQedList
     {
         static void Main(string[] args)
         {
-            // Restriction/Filtering Operations
-                // Find the words in the collection that start with the letter 'L'
-                // List<string> fruits = new List<string>() 
-                //     {
-                //         "Lemon", 
-                //         "Apple", 
-                //         "Orange", 
-                //         "Lime", 
-                //         "Watermelon", 
-                //         "Loganberry"
-                //     };
+                // Restriction/Filtering Operations
+                    // Find the words in the collection that start with the letter 'L'
+                    // List<string> fruits = new List<string>() 
+                    //     {
+                    //         "Lemon", 
+                    //         "Apple", 
+                    //         "Orange", 
+                    //         "Lime", 
+                    //         "Watermelon", 
+                    //         "Loganberry"
+                    //     };
 
-                // IEnumerable<string> LFruits = 
-                //     from fruit in fruits
-                //     where fruit.StartsWith("L")
-                //     select fruit;
+                    // IEnumerable<string> LFruits = 
+                    //     from fruit in fruits
+                    //     where fruit.StartsWith("L")
+                    //     select fruit;
+                        
+                    // foreach(string item in LFruits)
+                    // {
+                    //     Console.WriteLine(item);
+                    // }
+
+                    // List<int> numbers = new List<int>()
+                    // {
+                    // 15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+                    // };
+
+                    // IEnumerable<int> fourSixMultiples = 
+                    //     from number in numbers
+                    //     where number % 4 == 0 || number % 6 == 0
+                    //     select number;
                     
-                // foreach(string item in LFruits)
-                // {
-                //     Console.WriteLine(item);
-                // }
+                    // foreach(int number in fourSixMultiples)
+                    // {
+                    //     Console.WriteLine(number);
+                    // }
 
-                // List<int> numbers = new List<int>()
-                // {
-                // 15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
-                // };
+                // Ordering Operations
+                    // Order these student names alphabetically, in descending order (Z to A)
+                    //List<string> names = new List<string>()
+                    //{
+                    //  "Heather", "James", "Xavier", "Michelle", "Brian", "Nina",
+                    //  "Kathleen", "Sophia", "Amir", "Douglas", "Zarley", "Beatrice",
+                    //  "Theodora", "William", "Svetlana", "Charisse", "Yolanda",
+                    //  "Gregorio", "Jean-Paul", "Evangelina", "Viktor", "Jacqueline",
+                    //  "Francisco", "Tre"
+                    //};
 
-                // IEnumerable<int> fourSixMultiples = 
-                //     from number in numbers
-                //     where number % 4 == 0 || number % 6 == 0
-                //     select number;
+                    //IEnumerable<string> descend = 
+                    //  from name in names
+                    //  orderby name descending
+                    //  select name;
+
+                    //  foreach(string name in descend)
+                    //  {
+                    //  Console.WriteLine(name);
+                    //  }
+
+                    // Build a collection of these numbers sorted in ascending order
+                    //  List<int> numbers = new List<int>()
+                    //  {
+                    //  15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+                    //  };
+
+                    //  IEnumerable<int> ascend =
+                    //  from number in numbers
+                    //  orderby number ascending
+                    //  select number;
+
+                    //  foreach(int number in ascend)
+                    //  {
+                    //  Console.WriteLine(number);
+                    //  }
+
+            //Aggregate Operations
+                // Output how many numbers are in this list
+                List<int> numbers = new List<int>()
+                {
+                    15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+                };
+
+                Console.WriteLine(numbers.Count());
+
+                // How much money have we made?
+                List<double> purchases = new List<double>()
+                {
+                    2340.29, 745.31, 21.76, 34.03, 4786.45, 879.45, 9442.85, 2454.63, 45.65
+                };
                 
-                // foreach(int number in fourSixMultiples)
-                // {
-                //     Console.WriteLine(number);
-                // }
+                double sum = purchases.Sum();
 
-        // Ordering Operations
-            // Order these student names alphabetically, in descending order (Z to A)
-            List<string> names = new List<string>()
-            {
-                "Heather", "James", "Xavier", "Michelle", "Brian", "Nina",
-                "Kathleen", "Sophia", "Amir", "Douglas", "Zarley", "Beatrice",
-                "Theodora", "William", "Svetlana", "Charisse", "Yolanda",
-                "Gregorio", "Jean-Paul", "Evangelina", "Viktor", "Jacqueline",
-                "Francisco", "Tre"
-            };
+                Console.WriteLine(sum);
 
-            IEnumerable<string> descend = 
-                from name in names
-                orderby name descending
-                select name;
-
-            foreach(string name in descend)
+                // What is our most expensive product?
+                List<double> prices = new List<double>()
                 {
-                    Console.WriteLine(name);
-                }
+                    879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
+                };
 
-        // Build a collection of these numbers sorted in ascending order
-            List<int> numbers = new List<int>()
-            {
-                15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
-            };
+                double total = prices.Max();
+                Console.WriteLine(total);
 
-            IEnumerable<int> ascend =
-                from number in numbers
-                orderby number ascending
-                select number;
-
-            foreach(int number in ascend)
-                {
-                    Console.WriteLine(number);
-                }
         }
     }
 }
