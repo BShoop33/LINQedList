@@ -45,26 +45,34 @@ namespace LINQedList
                     //     Console.WriteLine(number);
                     // }
 
+
                 // Ordering Operations
-                    // Order these student names alphabetically, in descending order (Z to A)
-                    //List<string> names = new List<string>()
-                    //{
+                    //Order these student names alphabetically, in descending order (Z to A)
+                    // List<string> names = new List<string>()
+                    // {
                     //  "Heather", "James", "Xavier", "Michelle", "Brian", "Nina",
                     //  "Kathleen", "Sophia", "Amir", "Douglas", "Zarley", "Beatrice",
                     //  "Theodora", "William", "Svetlana", "Charisse", "Yolanda",
                     //  "Gregorio", "Jean-Paul", "Evangelina", "Viktor", "Jacqueline",
                     //  "Francisco", "Tre"
-                    //};
+                    // };
 
-                    //IEnumerable<string> descend = 
+                    ////////////////////////////////THESE ARE TWO DIFFERENT WAYS OF DOING THE SAME THING/////////////////////////////////
+                    //METHOD ONE
+                    // IEnumerable<string> descend = 
                     //  from name in names
                     //  orderby name descending
                     //  select name;
+
+                    //METHOD TWO
+                    // List<string> descend = names.OrderByDescending(name => name).ToList();
+                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                     //  foreach(string name in descend)
                     //  {
                     //  Console.WriteLine(name);
                     //  }
+
 
                     // Build a collection of these numbers sorted in ascending order
                     //  List<int> numbers = new List<int>()
@@ -82,34 +90,59 @@ namespace LINQedList
                     //  Console.WriteLine(number);
                     //  }
 
-            //Aggregate Operations
-                // Output how many numbers are in this list
-                List<int> numbers = new List<int>()
-                {
-                    15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
-                };
 
-                Console.WriteLine(numbers.Count());
+                //Aggregate Operations
+                    // Output how many numbers are in this list
+                    // List<int> numbers = new List<int>()
+                    // {
+                    //     15, 8, 21, 24, 32, 13, 30, 12, 7, 54, 48, 4, 49, 96
+                    // };
 
-                // How much money have we made?
-                List<double> purchases = new List<double>()
+                    // Console.WriteLine(numbers.Count());
+
+                    // // How much money have we made?
+                    // List<double> purchases = new List<double>()
+                    // {
+                    //     2340.29, 745.31, 21.76, 34.03, 4786.45, 879.45, 9442.85, 2454.63, 45.65
+                    // };
+                    
+                    // double sum = purchases.Sum();
+
+                    // Console.WriteLine(sum);
+
+                    // What is our most expensive product?
+                    // List<double> prices = new List<double>()
+                    // {
+                    //     879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
+                    // };
+
+                    // double total = prices.Max();
+                    // Console.WriteLine(total);
+                    
+
+                List<int> wheresSquaredo = new List<int>()
                 {
-                    2340.29, 745.31, 21.76, 34.03, 4786.45, 879.45, 9442.85, 2454.63, 45.65
+                    66, 12, 8, 27, 82, 34, 7, 50, 19, 46, 81, 23, 30, 4, 68, 14
                 };
                 
-                double sum = purchases.Sum();
+                /*
+                    Store each number in the following List until a perfect square
+                    is detected.
 
-                Console.WriteLine(sum);
+                    Expected output is { 66, 12, 8, 27, 82, 34, 7, 50, 19, 46 } 
 
-                // What is our most expensive product?
-                List<double> prices = new List<double>()
+                    Ref: https://msdn.microsoft.com/en-us/library/system.math.sqrt(v=vs.110).aspx
+                */
+
+                IEnumerable<int> notSquareRoots = wheresSquaredo.TakeWhile(num => 
                 {
-                    879.45, 9442.85, 2454.63, 45.65, 2340.29, 34.03, 4786.45, 745.31, 21.76
+                    return Math.Sqrt(num) % 1 != 0;
+                });
+
+                foreach(int num in notSquareRoots)
+                {
+                    Console.WriteLine(num);
                 };
-
-                double total = prices.Max();
-                Console.WriteLine(total);
-
         }
     }
 }
